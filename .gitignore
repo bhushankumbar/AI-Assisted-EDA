@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Streamlit
+.streamlit/
+
+# Local config and generated files
+api_key.txt
+ai_executive_summary.md
+
+# IDE files
+.vscode/
+.idea/
