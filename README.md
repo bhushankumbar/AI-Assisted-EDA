@@ -41,7 +41,7 @@ python ai_eda_engine.py
 streamlit run eda_dashboard.py
 ```
 
-## Resume-worthy features
+## Summary
 
 - Automated data profiling, KPI generation, and summary metrics.
 - AI-guided executive insights generation using Gemini.
