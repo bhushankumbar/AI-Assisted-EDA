@@ -1,114 +1,76 @@
 # Superstore Sales Analytics Dashboard
 
-An end-to-end exploratory data analysis project that transforms retail transaction data into an interactive analytics dashboard and an AI-assisted executive briefing.
+An end-to-end exploratory data analysis solution for turning retail transaction data into decision-ready business insights. The project combines a filtered Streamlit dashboard, interactive Plotly visualizations, derived performance metrics, and an AI-assisted executive briefing.
 
-The application helps stakeholders explore sales, profitability, discounts, shipping performance, and product category trends through interactive filters and visualizations. A separate analysis engine uses Google Gemini to convert calculated dataset insights into a structured executive summary.
+## Project Scope
 
-## Highlights
+This analysis covers a 9,994-row, 21-column retail dataset and examines:
 
-- Interactive Streamlit dashboard for retail performance analysis
-- KPI tracking for sales, profit, orders, discount, and shipping time
-- Date, region, category, segment, and shipping-mode filters
-- Monthly sales and profit trend analysis
-- Category and sub-category sales treemap
-- Shipping-mode comparison and discount distribution analysis
-- Profit-margin analysis across discount ranges
-- Export of filtered data as CSV
-- AI-generated executive insights based on computed data summaries
+- Sales, profit, order volume, discount, and shipping KPIs
+- Monthly sales and profit trends
+- Regional, category, sub-category, and customer-segment performance
+- Shipping-mode sales and profitability comparisons
+- Discount distribution and its relationship to profit margin
+- High-value products and loss-making transactions
+- Data completeness, descriptive statistics, outliers, and distribution behavior
+- Executive-level recommendations generated from computed analytical summaries
 
-## Technology Stack
+## What I Built
 
-- **Python** for data processing and application logic
-- **Pandas** for data cleaning, transformation, and aggregation
-- **Plotly Express** for interactive visualizations
-- **Streamlit** for the web dashboard
-- **Google Gemini API** for the optional executive summary
+- Designed a reusable Pandas data preparation pipeline with date parsing and derived fields for shipping duration, profit margin, year, month, and sales bands.
+- Built an interactive Streamlit dashboard with coordinated filters for date range, region, category, segment, and shipping mode.
+- Developed Plotly visualizations for trend analysis, hierarchical category segmentation, shipping comparison, discount behavior, and distribution analysis.
+- Added KPI calculations that update dynamically with the selected data slice.
+- Implemented filtered dataset export for downstream analysis.
+- Created an AI analysis engine that packages data quality checks, descriptive statistics, product profitability, sub-category performance, and shipping metrics into a structured Gemini executive briefing.
 
-## Project Structure
+## Analytical Techniques
+
+`Data cleaning` `Feature engineering` `Descriptive statistics` `GroupBy aggregation` `Time-series analysis` `KPI design` `Profitability analysis` `Outlier analysis` `Distribution analysis` `Interactive filtering` `Hierarchical segmentation` `AI-assisted insight generation`
+
+## Technology
+
+`Python` `Pandas` `Plotly Express` `Streamlit` `Google Gemini API`
+
+## Project Architecture
 
 ```text
-.
-├── ai_eda_engine.py          # Computes metrics and generates the AI briefing
-├── eda_dashboard.py          # Streamlit dashboard application
-├── superstore_sales.csv      # Retail transaction dataset
-├── charts/                   # Dashboard visualization previews
-├── requirements.txt          # Python dependencies
-└── README.md
+ai_eda_engine.py     Data profiling and AI executive briefing generation
+eda_dashboard.py     Interactive dashboard and visualization layer
+superstore_sales.csv Retail transaction dataset
+charts/              Dashboard screenshots and analytical visualizations
 ```
 
-## Getting Started
+## Dashboard Visuals
 
-### 1. Clone the repository
+### Dashboard Overview and KPI Layer
 
-```bash
-git clone https://github.com/bhushankumbar/AI-Assisted-EDA.git
-cd AI-Assisted-EDA
-```
+![Dashboard overview with KPIs and filters](charts/img%201.png)
 
-### 2. Create and activate a virtual environment
+### Interactive Filter Panel
 
-On Windows PowerShell:
+![Dashboard filter controls](charts/img%202.png)
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
+### Monthly Profit Trend
 
-### 3. Install dependencies
+![Monthly profit trend](charts/img%203.png)
 
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+### Category and Sub-Category Sales Treemap
 
-### 4. Launch the dashboard
+![Category and sub-category sales treemap](charts/img%204.png)
 
-```bash
-python -m streamlit run eda_dashboard.py
-```
+### Average Sales and Profit by Shipping Mode
 
-Streamlit will provide a local URL, normally `http://localhost:8501`.
+![Average sales and profit by shipping mode](charts/img%205.png)
 
-## Optional AI Executive Summary
+### Profit Margin by Discount Range and Discount Distribution
 
-The dashboard can display `ai_executive_summary.md` when the file has been generated. To create or refresh it, configure a Gemini API key using either method below.
+![Profit margin by discount range and discount distribution](charts/img%206.png)
 
-### Environment variable
+### AI Executive Insights Briefing
 
-PowerShell:
+![AI-generated executive insights briefing](charts/img%207.png)
 
-```powershell
-$env:GOOGLE_API_KEY="your_api_key_here"
-```
+## Outcome
 
-### Local key file
-
-Create `api_key.txt` in the project root and add only the API key. This file is excluded from Git by `.gitignore`.
-
-Then run:
-
-```bash
-python ai_eda_engine.py
-```
-
-The generated summary is saved locally as `ai_executive_summary.md`.
-
-## Dashboard Preview
-
-![Sales trend visualization](charts/img%201.png)
-
-![Profit analysis visualization](charts/img%202.png)
-
-![Category performance visualization](charts/img%203.png)
-
-## Data Workflow
-
-1. Load and parse transaction data from the CSV dataset.
-2. Derive order dates, shipping duration, profit margin, year, month, and sales category fields.
-3. Apply user-selected dashboard filters.
-4. Calculate filtered KPIs and render interactive visualizations.
-5. Optionally summarize the dataset with Google Gemini for executive-level insights.
-
-## Security Note
-
-API keys are kept out of source control through `.gitignore`. Never commit credentials, tokens, or other private configuration files to the repository.
+The project demonstrates how raw transactional data can be transformed into an analytical product that supports performance monitoring, profitability investigation, operational comparison, and concise executive communication.
